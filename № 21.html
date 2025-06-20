@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Задача про моторную лодку</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .task {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            padding: 8px;
+            width: 100px;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+            min-height: 30px;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9f7ef;
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Задача:</h2>
+        <p>Моторная лодка прошла против течения реки 297 км и вернулась в пункт отправления, затратив на обратный путь на 3 часа меньше, чем на путь против течения. Найдите скорость лодки в неподвижной воде, если скорость течения реки равна 2 км/ч.</p>
+        
+        <p>Введите ваш ответ (км/ч):</p>
+        <input type="number" id="userAnswer" min="0" step="1">
+        <button onclick="checkAnswer()">Проверить</button>
+        
+        <div id="result"></div>
+        
+        <button onclick="showExplanation()">Показать решение</button>
+        <div id="explanation" class="explanation">
+            <h3>Решение:</h3>
+            <p>1. Пусть x - скорость лодки в неподвижной воде (км/ч)</p>
+            <p>2. Тогда:</p>
+            <p>   - Скорость против течения: (x - 2) км/ч</p>
+            <p>   - Скорость по течению: (x + 2) км/ч</p>
+            <p>3. Время против течения: 297 / (x - 2) часов</p>
+            <p>4. Время по течению: 297 / (x + 2) часов</p>
+            <p>5. Разница во времени: 297/(x-2) - 297/(x+2) = 3</p>
+            <p>6. Решаем уравнение:</p>
+            <p>   297(x+2) - 297(x-2) = 3(x-2)(x+2)</p>
+            <p>   594 + 594 = 3(x² - 4)</p>
+            <p>   1188 = 3x² - 12</p>
+            <p>   3x² = 1200</p>
+            <p>   x² = 400</p>
+            <p>   x = 20 (так как скорость не может быть отрицательной)</p>
+            <p><strong>Ответ: 20 км/ч</strong></p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const correctAnswer = 20;
+            const userAnswer = parseFloat(document.getElementById("userAnswer").value);
+            const resultDiv = document.getElementById("result");
+            
+            if (isNaN(userAnswer)) {
+                resultDiv.textContent = "Введите число!";
+                resultDiv.className = "incorrect";
+                return;
+            }
+            
+            if (Math.abs(userAnswer - correctAnswer) < 0.1) {
+                resultDiv.textContent = "✅ Верно! Скорость лодки действительно 20 км/ч.";
+                resultDiv.className = "correct";
+            } else {
+                resultDiv.textContent = "❌ Неверно. Попробуйте еще раз!";
+                resultDiv.className = "incorrect";
+            }
+        }
+        
+        function showExplanation() {
+            const explanationDiv = document.getElementById("explanation");
+            if (explanationDiv.style.display === "block") {
+                explanationDiv.style.display = "none";
+            } else {
+                explanationDiv.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
