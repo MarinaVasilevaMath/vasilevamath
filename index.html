@@ -7,6 +7,96 @@
     <title>Онлайн-репетитор по математике</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        /* Фиксированный фон только для главной страницы */
+        body {
+            background-image: url('images/frontmain.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            color: #333; /* Цвет текста по умолчанию */
+        }
+
+        /* Затемнение фона для лучшей читаемости */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.7); /* Белая подложка с 70% прозрачности */
+            z-index: -1;
+        }
+
+        /* Стили для шапки */
+        header {
+            background-color: rgba(44, 62, 80, 0.9); /* Темно-синий с прозрачностью */
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Навигационное меню */
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Основное содержимое */
+        main.container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
+            margin: 3rem auto;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Подвал */
+        footer {
+            background-color: rgba(44, 62, 80, 0.9);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+
+        /* Адаптация для мобильных устройств */
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+            }
+            
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            
+            main.container {
+                margin: 2rem 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,7 +112,7 @@
         </nav>
     </header>
 
-    <main class="container">
+    <main class="container"> 
         <h2>Добро пожаловать!</h2>
         <p>Интерактивные задания с проверкой ответов.</p>
     </main>
